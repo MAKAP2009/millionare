@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Як стати мiллiонером</title>
+</head>
+<body>
+
+    <p>
+        Гра «Як стати мільйонером».
+        Подумайте, як можна реалізувати подібний сценарій з використанням масивів та об'єктів.
+        Пам'ятайте, що для кожного запитання потрібно прописати: запитання, 4 варіанти відповіді,
+        правильну відповідь (яку порівнюватимемо з тим, що ввів користувач), сума, яку виграв
+        користувач. Визначте щонайменше 5 питань. Запитання з варіантами відповідей ви можете
+        вигадати самостійно, а можете скористатися пошуком.
+    </p>
+
+    <script>
+    /*Гра «Як стати мільйонером».
+    Подумайте, як можна реалізувати подібний сценарій з використанням масивів та об'єктів.
+    Пам'ятайте, що для кожного запитання потрібно прописати: запитання, 4 варіанти відповіді,
+    правильну відповідь (яку порівнюватимемо з тим, що ввів користувач), сума, яку виграв
+    користувач. Визначте щонайменше 5 питань. Запитання з варіантами відповідей ви можете
+    вигадати самостійно, а можете скористатися пошуком.*/
+
+    // Створюємо масив з вiдповiдями та питаннями, окреме значення праильноi вiдповiдi correctAnswer
+    let questions = [
+        {
+            question: "Який оператор використовується для поєднання двох або більше стрiчок в одну стрiчку?",
+            answers: ["/", "*", "-", "+"],
+            correctAnswer: 3,
+            prize: 500,
+        },
+        {
+            question: "Яка мова програмування була створена Яном Ліспом?",
+            answers: ["Java", "Python", "Lisp", "JavaScript"],
+            correctAnswer: 2,
+            prize: 1000,
+        },
+        {
+            question: "Який оператор використовується для порівняння значень без урахування типу?",
+            answers: ["===", "==", "=", "!="],
+            correctAnswer: 1,
+            prize: 2000,
+        },
+        {
+            question: "Який тип даних на JavaScript використовується для зберігання тексту?",
+            answers: ["String", "Number", "Boolean", "Object"],
+            correctAnswer: 0,
+            prize: 3000,
+        },
+        {
+            question: "Яка функція використовується для визначення типу змінних у JavaScript?",
+            answers: ["typeof", "getType", "getTypeOf", "typeOf"],
+            correctAnswer: 0,
+            prize: 5000,
+        },
+        ];
+    
+    // Створюємо функцiю
+    function askQuestions() {
+        let score = 0;
+        for (let i = 0; i < questions.length; i++) {
+            let userAnswer = prompt(questions[i].question + "\n" + questions[i].answers.join("\n"));
+            if (userAnswer !== null && userAnswer.toLowerCase() === questions[i].answers[questions[i].correctAnswer].toLowerCase()) {
+                score += questions[i].prize;
+                if (confirm("Вiдповiдь вiрна! Бажаєте продовжити гру?")) {
+                    continue;
+                    } else {
+                    break;
+                    }
+                } 
+                else {
+                    alert("Вiдповiдь невiрна!");
+                break;
+                }
+            }
+
+        alert("Гра завершена. Ваш рахунок: " + score + ' балiв');
+        }
+
+// Вызываем функцию
+askQuestions();
+
+    </script>
+    
+</body>
+</html>
